@@ -1,0 +1,87 @@
+.subtitle {
+    font-size: 24px;
+    margin: 80px 0 20px;
+    text-align: center;
+    font-weight: 400;
+    position: relative;
+    display: inline-block;
+}
+
+.create-button {
+    background-color: #aca0eb;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    padding: 10px 40px;
+    cursor: pointer;
+    white-space: nowrap;
+    position: absolute;
+    top: 22%;
+    left: 53%;
+    transform: translate(120%, -50%);
+}
+
+.thread-container {
+    width: 80%;
+    max-width: 800px;
+    margin: 20px auto;
+}
+
+.post-card {
+    background: white;
+    border-radius: 16px;
+    padding: 24px;
+    margin-bottom: 16px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    cursor: pointer;
+}
+
+.post-header {
+    margin-bottom: 16px;
+}
+
+.post-title {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 0 0 12px 0;
+}
+
+.post-stats {
+    color: #666;
+    font-size: 14px;
+    display: inline-block;
+}
+
+.post-date {
+    float: right;
+    color: #666;
+    font-size: 14px;
+}
+
+.post-divider {
+    height: 1px;
+    background-color: #eaeaea;
+    margin: 16px 0;
+}
+
+.post-footer {
+    margin-top: 16px;
+}
+
+.profile {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.profile-image {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-color: #eaeaea;
+}
+
+.profile-name {
+    font-size: 14px;
+    color: #333;
+}

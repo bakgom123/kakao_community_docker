@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>게시글 작성</title>
+        <link rel="stylesheet" href="../styles/create-post.css" />
+        <link rel="stylesheet" href="../styles/global.css" />
+        <link rel="stylesheet" href="../styles/login.css" />
+        <link rel="stylesheet" href="../styles/edit-profile.css" />
+        <script src="../js/create-post.js" defer></script>
+    </head>
+
+    <body>
+        <lottie-header></lottie-header>
+
+        <div class="main-content">
+            <div class="container">
+                <div class="login-section">
+                    <h2 class="login-title">게시글 작성</h2>
+                    <div class="form-group">
+                        <label for="title">제목 *</label>
+                        <input
+                            type="text"
+                            id="title"
+                            name="title"
+                            placeholder="제목을 입력하세요"
+                            maxlength="26"
+                        />
+                    </div>
+                    <div class="form-group">
+                        <label for="content">내용 *</label>
+                        <textarea
+                            id="content"
+                            name="content"
+                            placeholder="내용을 입력하세요"
+                            rows="10"
+                        ></textarea>
+                    </div>
+                    <div class="inputBox" enctype="multipart/form-data">
+                        <label for="imageUpload">이미지</label>
+                        <input
+                            type="file"
+                            id="imageUpload"
+                            name="imageUpload"
+                            accept="image/*"
+                        />
+                    </div>
+                    <div class="buttons">
+                        <button onclick="submitPost()">완료</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.7.8/lottie.min.js"></script>
+        <script type="module" src="../components/lottie-header.js"></script>
+    </body>
+</html>

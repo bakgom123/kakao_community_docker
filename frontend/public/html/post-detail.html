@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>게시글 상세</title>
+        <link rel="stylesheet" href="../styles/post-detail.css" />
+        <link rel="stylesheet" href="../styles/global.css" />
+        <link rel="stylesheet" href="../styles/edit-profile.css" />
+    </head>
+    <body>
+        <lottie-header></lottie-header>
+
+        <div class="post-container" role="main">
+            <div class="post-header">
+                <h2 id="post-title" class="post-title">제목 로딩 중...</h2>
+
+                <div class="post-meta">
+                    <div class="author-info">
+                        <div class="profile-image"></div>
+                        <span id="author-name" class="author-name"
+                            >작성자 로딩 중...</span
+                        >
+                        <span id="post-date" class="post-date"
+                            >날짜 로딩 중...</span
+                        >
+                    </div>
+
+                    <div class="action-buttons" style="display: none">
+                        <button id="edit-button">수정</button>
+                        <button class="post-delete-btn">삭제</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="post-content">
+                <div id="content-text">내용 로딩 중...</div>
+
+                <div class="post-image"></div>
+
+                <div class="post-stats">
+                    <div class="stat-item" data-type="likes">
+                        <span id="likes-count" class="stat-value">0</span>
+                        <span class="stat-label">좋아요</span>
+                    </div>
+
+                    <div class="stat-item">
+                        <span id="views-count" class="stat-value">0</span>
+                        <span class="stat-label">조회수</span>
+                    </div>
+
+                    <div class="stat-item">
+                        <span id="comments-count" class="stat-value">0</span>
+                        <span class="stat-label">댓글</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="comment-section">
+                <div class="comment-input">
+                    <textarea placeholder="댓글을 입력하세요..."></textarea>
+                </div>
+
+                <div class="comment-submit-container">
+                    <button class="comment-submit">댓글 등록</button>
+                </div>
+
+                <div class="comment-divider"></div>
+
+                <div class="comment-list"></div>
+            </div>
+        </div>
+
+        <div id="postDeleteModal" class="modal-backdrop">
+            <div class="modal-container">
+                <h2 class="modal-title">게시글을 삭제하시겠습니까?</h2>
+                <p class="modal-message">삭제한 내용은 복구할 수 없습니다.</p>
+                <div class="modal-buttons">
+                    <button class="btn-cancel">취소</button>
+                    <button class="btn-confirm">확인</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="commentDeleteModal" class="modal-backdrop">
+            <div class="modal-container">
+                <h2 class="modal-title">댓글을 삭제하시겠습니까?</h2>
+                <p class="modal-message">삭제한 내용은 복구할 수 없습니다.</p>
+                <div class="modal-buttons">
+                    <button class="btn-cancel">취소</button>
+                    <button class="btn-confirm">확인</button>
+                </div>
+            </div>
+        </div>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.7.8/lottie.min.js"></script>
+        <script type="module" src="../components/lottie-header.js"></script>
+        <script type="module" src="../js/post-detail.js"></script>
+    </body>
+</html>

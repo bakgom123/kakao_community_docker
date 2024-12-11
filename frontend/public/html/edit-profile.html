@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>회원정보수정</title>
+        <link rel="stylesheet" href="../styles/global.css" />
+        <link rel="stylesheet" href="../styles/edit-profile.css" />
+    </head>
+
+    <body>
+        <div class="popup" id="confirmPopup">
+            <div class="popup-content">
+                <h2>회원탈퇴 하시겠습니까?</h2>
+                <p>작성된 게시글과 댓글은 삭제됩니다.</p>
+                <div class="popup-buttons">
+                    <button class="cancel-btn">취소</button>
+                    <button class="confirm-btn">확인</button>
+                </div>
+            </div>
+        </div>
+
+        <main-header></main-header>
+
+        <main class="main-content">
+            <div class="container">
+                <section class="signup-section">
+                    <h2 class="signup-title">회원정보수정</h2>
+
+                    <div class="profile-upload">
+                        <div
+                            class="profile-image-container"
+                            id="profileImageContainer"
+                        >
+                            <img
+                                src="../assets/default.webp"
+                                alt="프로필 미리보기"
+                                id="profilePreview"
+                            />
+                        </div>
+                        <p class="helper-text">프로필 이미지를 선택하세요</p>
+                        <input
+                            type="file"
+                            id="profileUpload"
+                            accept="image/*"
+                            style="display: none"
+                        />
+                    </div>
+
+                    <div class="form-group">
+                        <label>이메일</label>
+                        <input
+                            type="email"
+                            value="example@example.com"
+                            readonly
+                        />
+                    </div>
+
+                    <div class="form-group">
+                        <label>닉네임</label>
+                        <input
+                            type="text"
+                            id="nickname"
+                            placeholder="닉네임을 입력해주세요"
+                        />
+                        <div id="nicknameError" class="error-message">
+                            닉네임은 2자 이상, 10자 이하로 입력해주세요.
+                        </div>
+                    </div>
+
+                    <button class="button signup-button" id="saveButton">
+                        수정하기
+                    </button>
+                    <button class="button login-link" id="withdrawButton">
+                        회원 탈퇴
+                    </button>
+                </section>
+            </div>
+        </main>
+
+        <script src="../js/edit-profile.js"></script>
+        <script type="module" src="../components/main-header.js"></script>
+    </body>
+</html>
