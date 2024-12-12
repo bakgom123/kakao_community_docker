@@ -5,7 +5,7 @@
 async function fetchPost(postId) {
     try {
         //const response = await fetch(`http://localhost:3000/posts/${postId}`);
-        const response = await fetch(`/api/posts/${postId}`);
+        const response = await fetch(`http://43.203.237.161/api/posts/${postId}`);
         if (!response.ok) {
             throw new Error('게시글을 가져오는 데 실패했습니다.');
         }
@@ -71,7 +71,7 @@ async function reSubmitPost() {
     try {
         // 서버에 게시글 수정 요청
         //const response = await fetch(`http://localhost:3000/posts/${postId}`, {
-        const response = await fetch(`/api/posts/${postId}`, {
+        const response = await fetch(`http://43.203.237.161/api/posts/${postId}`, {
             method: 'PUT',
             body: formData,
         });

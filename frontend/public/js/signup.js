@@ -206,7 +206,7 @@ class SignupForm {
                 nickname: this.nicknameInput.value,
                 profileImage: this.profileImageData || 'default.webp',
             };
-            fetch('/api/auth/signup', {
+            fetch('http://43.203.237.161/api/auth/signup', {
             //fetch('http://localhost:3000/auth/signup', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },

@@ -14,7 +14,7 @@ class LottieHeader extends HTMLElement {
 
        try {
            const response = await fetch(
-               `/api/user/profile-image/${email}`,
+               `http://43.203.237.161/api/user/profile-image/${email}`,
                {
                    headers: {
                        Accept: 'application/json',
