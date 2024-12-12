@@ -156,6 +156,11 @@ export const withdrawUser = async (req, res) => {
 // @param {string} req.body.password - 사용자 비밀번호
 // @returns {Object} 로그인 결과 및 사용자 정보
 export const login = async (req, res) => {
+    console.log('Login attempt:', {
+        body: req.body,
+        session: req.session,
+        headers: req.headers
+    });
     const { email, password } = req.body;
 
     // 이메일 검증

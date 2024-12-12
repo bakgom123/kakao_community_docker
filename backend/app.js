@@ -39,7 +39,7 @@ app.use(
             httpOnly: true,
             secure: process.env.NODE_ENV === 'production', // 프로덕션에서만 secure 활성화
             maxAge: 24 * 60 * 60 * 1000, // 24시간
-            sameSite: 'lax',
+            sameSite: 'none',
         },
     }),
 );
@@ -54,13 +54,16 @@ app.use((req, res, next) => {
 app.use(
     '/uploads',
     (req, res, next) => {
-        res.header('Access-Control-Allow-Origin', 'http://43.203.237.161');
-        res.header('Access-Control-Allow-Origin', 'http://43.203.237.161:3002');
+        // 배열로 처리
+        const allowedOrigins = ['http://43.203.237.161', 'http://43.203.237.161:3002'];
+        const origin = req.headers.origin;
+        
+        if (allowedOrigins.includes(origin)) {
+            res.header('Access-Control-Allow-Origin', origin);
+        }
+        
         res.header('Access-Control-Allow-Methods', 'GET, OPTIONS');
-        res.header(
-            'Access-Control-Allow-Headers',
-            'Content-Type, Authorization',
-        );
+        res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
         next();
     },
     express.static(path.join(process.cwd(), 'uploads')),
