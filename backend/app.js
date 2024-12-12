@@ -44,6 +44,11 @@ app.use(
     }),
 );
 
+app.use((req, res, next) => {
+    console.log(`[${new Date().toISOString()}] ${req.method} ${req.url}`);
+    next();
+});
+
 // 정적 파일 제공 설정
 // CORS 헤더가 포함된 uploads 디렉토리 접근 설정
 app.use(
