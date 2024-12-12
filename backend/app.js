@@ -20,6 +20,10 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 dotenv.config();
 
+app.use(cors({
+    origin: ['http://43.203.237.161', 'http://43.203.237.161:3002'],  // 프론트엔드 도메인
+    credentials: true  // 쿠키/세션 허용
+}));
 
 // 요청 본문 파싱 설정
 app.use(express.json({ limit: '50mb' }));
@@ -45,8 +49,8 @@ app.use(
 app.use(
     '/uploads',
     (req, res, next) => {
-        // res.header('Access-Control-Allow-Origin', 'http://127.0.0.1:5500');
         res.header('Access-Control-Allow-Origin', 'http://43.203.237.161');
+        res.header('Access-Control-Allow-Origin', 'http://43.203.237.161:3002');
         res.header('Access-Control-Allow-Methods', 'GET, OPTIONS');
         res.header(
             'Access-Control-Allow-Headers',
