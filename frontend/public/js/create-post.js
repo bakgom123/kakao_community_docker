@@ -64,7 +64,8 @@ const submitPost = async () => {
             //'http://localhost:3000/posts/create-post',
             //{
                 // const response = await fetch(
-            '/api/posts/create-post',
+            // '/api/posts/create-post',
+            'http://43.203.237.161/api/posts/create-post',
             {
                 method: 'POST',
                 body: formData,

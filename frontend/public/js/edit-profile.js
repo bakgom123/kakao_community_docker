@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', function () {
      * 현재 사용자의 프로필 이미지를 서버에서 가져와 표시
      */
     //fetch(`http://localhost:3000/user/profile-image/${email}`)
-    fetch(`/api/user/profile-image/${email}`)
+    fetch(`http://43.203.237.161/api/user/profile-image/${email}`)
         .then(response => response.json())
         .then(data => {
             if (data.success) {

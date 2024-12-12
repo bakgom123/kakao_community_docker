@@ -124,7 +124,7 @@ class passwordForm {
             try {
                 const response = await fetch(
                     //'http://localhost:3000/user/change-password',
-                    '/api/user/change-password',
+                    'http://43.203.237.161/api/user/change-password',
                     {
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json' },

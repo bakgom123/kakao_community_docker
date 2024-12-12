@@ -32,7 +32,7 @@ function populateForm(post) {
     const imagePreview = document.getElementById('imagePreview');
     if (post.image && imagePreview) {
         //imagePreview.src = `http://localhost:3000/posts/${post.image}`;
-        imagePreview.src = `/api/posts/${post.image}`;
+        imagePreview.src = `http://43.203.237.161/api/posts/${post.image}`;
         imagePreview.style.display = 'block';
     }
 
