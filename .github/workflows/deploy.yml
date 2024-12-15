@@ -1,41 +1,69 @@
-name: Deploy to ECR
+name: Deploy to ECR and Elastic Beanstalk
 
 on:
-  push:
-    branches: [ main ]
+ push:
+   branches: [ main ]
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    
-    steps:
-    - uses: actions/checkout@v2
-    
-    - name: Configure AWS credentials
-      uses: aws-actions/configure-aws-credentials@v1
-      with:
-        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        aws-region: ap-northeast-2
-    
-    - name: Login to Amazon ECR
-      id: login-ecr
-      uses: aws-actions/amazon-ecr-login@v1
-    
-    - name: Build and push Backend Docker image
-      env:
-        ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-        ECR_REPOSITORY: community-backend  # ECR 백엔드 리포지토리 이름
-        IMAGE_TAG: latest
-      run: |
-        docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG ./backend
-        docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
-    
-    - name: Build and push Frontend Docker image
-      env:
-        ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-        ECR_REPOSITORY: community-frontend  # ECR 프론트엔드 리포지토리 이름
-        IMAGE_TAG: latest
-      run: |
-        docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG ./frontend
-        docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
+ deploy:
+   runs-on: ubuntu-latest
+   
+   steps:
+   - uses: actions/checkout@v2
+   
+   - name: Configure AWS credentials
+     uses: aws-actions/configure-aws-credentials@v1
+     with:
+       aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+       aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+       aws-region: ap-northeast-2
+   
+   - name: Login to Amazon ECR
+     id: login-ecr
+     uses: aws-actions/amazon-ecr-login@v1
+   
+   - name: Build and push Docker images
+     env:
+       ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+     run: |
+       # Backend
+       docker build -t $ECR_REGISTRY/community-backend:${{ github.sha }} -f backend/dockerfile ./backend
+       docker push $ECR_REGISTRY/community-backend:${{ github.sha }}
+       
+       # Frontend
+       docker build -t $ECR_REGISTRY/community-frontend:${{ github.sha }} -f frontend/dockerfile ./frontend
+       docker push $ECR_REGISTRY/community-frontend:${{ github.sha }}
+       
+   - name: Generate docker-compose.yml
+     run: |
+       cat > docker-compose.yml << EOL
+       version: '3'
+       services:
+         frontend:
+           image: ${{ steps.login-ecr.outputs.registry }}/community-frontend:${{ github.sha }}
+           ports:
+             - "80:3002"
+           mem_limit: 512m
+           environment:
+             - PORT=3002
+
+         backend:
+           image: ${{ steps.login-ecr.outputs.registry }}/community-backend:${{ github.sha }}
+           ports:
+             - "8080:3003"
+           mem_limit: 512m
+           environment:
+             - PORT=3003
+       EOL
+   
+   - name: Deploy to Elastic Beanstalk
+     uses: einaregilsson/beanstalk-deploy@v21
+     with:
+       aws_access_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
+       aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+       application_name: kakao-community
+       environment_name: kakao-community-env
+       version_label: "ver-${{ github.sha }}"
+       region: ap-northeast-2
+       deployment_package: docker-compose.yml
+       wait_for_environment_recovery: 300
