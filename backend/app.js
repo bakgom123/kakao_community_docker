@@ -55,7 +55,7 @@ app.use(
     '/uploads',
     (req, res, next) => {
         // 배열로 처리
-        const allowedOrigins = ['http://43.203.237.161', 'http://43.203.237.161:3002'];
+        const allowedOrigins = ['http://43.203.237.161', 'http://43.203.237.161:3002', 'http://kakao-community-docker-env.eba-fmgi3uwj.ap-northeast-2.elasticbeanstalk.com'];
         const origin = req.headers.origin;
         
         if (allowedOrigins.includes(origin)) {
