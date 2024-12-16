@@ -54,6 +54,10 @@ jobs:
            mem_limit: 512m
            environment:
              - PORT=3003
+             - AWS_REGION=ap-northeast-2
+             - AWS_BUCKET_NAME=david-community-bucket
+             - AWS_ACCESS_KEY_ID=${{ secrets.AWS_ACCESS_KEY_ID }}
+             - AWS_SECRET_ACCESS_KEY=${{ secrets.AWS_SECRET_ACCESS_KEY }}
        EOL
    
    - name: Deploy to Elastic Beanstalk
