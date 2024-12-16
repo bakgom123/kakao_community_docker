@@ -53,11 +53,16 @@ jobs:
              - "8080:3003"
            mem_limit: 512m
            environment:
-             - PORT=3003
-             - AWS_REGION=ap-northeast-2
-             - AWS_BUCKET_NAME=david-community-bucket
-             - AWS_ACCESS_KEY_ID=${{ secrets.AWS_ACCESS_KEY_ID }}
-             - AWS_SECRET_ACCESS_KEY=${{ secrets.AWS_SECRET_ACCESS_KEY }}
+            - PORT=3003
+            - AWS_REGION=${{ secrets.AWS_REGION }}
+            - AWS_BUCKET_NAME=${{ secrets.AWS_BUCKET_NAME }}
+            - AWS_ACCESS_KEY_ID=${{ secrets.AWS_ACCESS_KEY_ID }}
+            - AWS_SECRET_ACCESS_KEY=${{ secrets.AWS_SECRET_ACCESS_KEY }}
+            - DB_HOST=${{ secrets.DB_HOST }}
+            - DB_PORT=${{ secrets.DB_PORT }}
+            - DB_USER=${{ secrets.DB_USER }}
+            - DB_PASSWORD=${{ secrets.DB_PASSWORD }}
+            - DB_NAME=${{ secrets.DB_NAME }}
        EOL
    
    - name: Deploy to Elastic Beanstalk
