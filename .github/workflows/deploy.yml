@@ -72,7 +72,7 @@ jobs:
        aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
        application_name: kakao-community-docker
        environment_name: Kakao-community-docker-env
-       version_label: "ver-${{ github.sha }}"
+       version_label: "ver-${{ github.sha }}-${{ github.run_number }}"
        region: ap-northeast-2
        deployment_package: docker-compose.yml
        wait_for_environment_recovery: 300
