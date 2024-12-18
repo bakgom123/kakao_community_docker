@@ -9,7 +9,8 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-    - uses: actions/checkout@v2
+    - name: Checkout Code
+      uses: actions/checkout@v2
     
     - name: Configure AWS credentials
       uses: aws-actions/configure-aws-credentials@v1
@@ -21,16 +22,16 @@ jobs:
     - name: Login to Amazon ECR
       id: login-ecr
       uses: aws-actions/amazon-ecr-login@v1
-    
-    - name: Build and push Docker images
+
+    - name: Build and push Docker images to ECR
       env:
         ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
       run: |
-        # Build and Push Backend
+        # Build and Push Backend Image
         docker build -t $ECR_REGISTRY/community-backend:latest -f backend/dockerfile ./backend
         docker push $ECR_REGISTRY/community-backend:latest
 
-        # Build and Push Frontend
+        # Build and Push Frontend Image
         docker build -t $ECR_REGISTRY/community-frontend:latest -f frontend/dockerfile ./frontend
         docker push $ECR_REGISTRY/community-frontend:latest
 
