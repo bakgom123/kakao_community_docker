@@ -26,57 +26,34 @@ jobs:
       env:
         ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
       run: |
-        # Backend
-        docker build -t $ECR_REGISTRY/community-backend:${{ github.sha }} -f backend/dockerfile ./backend
-        docker push $ECR_REGISTRY/community-backend:${{ github.sha }}
-        
-        # Frontend
-        docker build -t $ECR_REGISTRY/community-frontend:${{ github.sha }} -f frontend/dockerfile ./frontend
-        docker push $ECR_REGISTRY/community-frontend:${{ github.sha }}
-        
-    - name: Generate docker-compose.yml
-      run: |
-        cat > docker-compose.yml << EOL
-        version: '3'
-        services:
-          frontend:
-            image: ${{ steps.login-ecr.outputs.registry }}/community-frontend:${{ github.sha }}
-            ports:
-              - "80:3002"
-            mem_limit: 512m
-            environment:
-              - PORT=3002
+        # Build and Push Backend
+        docker build -t $ECR_REGISTRY/community-backend:latest -f backend/dockerfile ./backend
+        docker push $ECR_REGISTRY/community-backend:latest
 
-          backend:
-            image: ${{ steps.login-ecr.outputs.registry }}/community-backend:${{ github.sha }}
-            ports:
-              - "8080:3003"
-            mem_limit: 512m
-            environment:
-              - PORT=3003
-              - AWS_REGION=${{ secrets.AWS_REGION }}
-              - AWS_BUCKET_NAME=${{ secrets.AWS_BUCKET_NAME }}
-              - AWS_ACCESS_KEY_ID=${{ secrets.AWS_ACCESS_KEY_ID }}
-              - AWS_SECRET_ACCESS_KEY=${{ secrets.AWS_SECRET_ACCESS_KEY }}
-              - DB_HOST=${{ secrets.DB_HOST }}
-              - DB_PORT=${{ secrets.DB_PORT }}
-              - DB_USER=${{ secrets.DB_USER }}
-              - DB_PASSWORD=${{ secrets.DB_PASSWORD }}
-              - DB_NAME=${{ secrets.DB_NAME }}
-        EOL
-    
-    - name: Deploy to Elastic Beanstalk
+        # Build and Push Frontend
+        docker build -t $ECR_REGISTRY/community-frontend:latest -f frontend/dockerfile ./frontend
+        docker push $ECR_REGISTRY/community-frontend:latest
+
+    - name: Deploy Backend to Elastic Beanstalk
       uses: einaregilsson/beanstalk-deploy@v21
       with:
         aws_access_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
         aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         application_name: kakao-community-docker
-        environment_name: Kakao-community-docker-env
-        version_label: "ver-${{ github.sha }}-${{ github.run_number }}"
+        environment_name: David-kakao-community-env-backend
+        version_label: "backend-${{ github.sha }}-${{ github.run_number }}"
         region: ap-northeast-2
-        deployment_package: docker-compose.yml
+        deployment_package: backend/Dockerrun.aws.json
         wait_for_environment_recovery: 300
 
-    - name: Health Check for ELB
-      run: |
-        curl -I http://awseb--AWSEB-2FgBvrStEvGe-683537314.ap-northeast-2.elb.amazonaws.com/health
+    - name: Deploy Frontend to Elastic Beanstalk
+      uses: einaregilsson/beanstalk-deploy@v21
+      with:
+        aws_access_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        application_name: kakao-community-docker
+        environment_name: David-kakao-community-env
+        version_label: "frontend-${{ github.sha }}-${{ github.run_number }}"
+        region: ap-northeast-2
+        deployment_package: frontend/Dockerrun.aws.json
+        wait_for_environment_recovery: 300
