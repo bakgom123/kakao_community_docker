@@ -35,7 +35,7 @@ jobs:
         docker build -t $ECR_REGISTRY/community-frontend:latest -f frontend/dockerfile ./frontend
         docker push $ECR_REGISTRY/community-frontend:latest
 
-    - name: Deploy Backend to Elastic Beanstalk
+    - name: Deploying Backend to Elastic Beanstalk
       uses: einaregilsson/beanstalk-deploy@v21
       with:
         aws_access_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
@@ -47,7 +47,7 @@ jobs:
         deployment_package: backend/Dockerrun.aws.json
         wait_for_environment_recovery: 300
 
-    - name: Deploy Frontend to Elastic Beanstalk
+    - name: Deploying Frontend to Elastic Beanstalk
       uses: einaregilsson/beanstalk-deploy@v21
       with:
         aws_access_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
