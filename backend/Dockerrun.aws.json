@@ -8,5 +8,11 @@
       {
         "ContainerPort": 3003
       }
+    ],
+    "Environment": [
+      { "Name": "AWS_BUCKET_NAME", "Value": "${AWS_BUCKET_NAME}" },
+      { "Name": "AWS_REGION", "Value": "${AWS_REGION}" },
+      { "Name": "AWS_ACCESS_KEY_ID", "Value": "${AWS_ACCESS_KEY_ID}" },
+      { "Name": "AWS_SECRET_ACCESS_KEY", "Value": "${AWS_SECRET_ACCESS_KEY}" }
     ]
   }
