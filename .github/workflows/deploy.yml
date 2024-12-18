@@ -39,7 +39,7 @@ jobs:
       with:
         aws_access_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
         aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        application_name: kakao-community-docker
+        application_name: david-kakao-community
         environment_name: David-kakao-community-env-backend
         version_label: "backend-${{ github.sha }}-${{ github.run_number }}"
         region: ap-northeast-2
@@ -51,7 +51,7 @@ jobs:
       with:
         aws_access_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
         aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        application_name: kakao-community-docker
+        application_name: david-kakao-community
         environment_name: David-kakao-community-env
         version_label: "frontend-${{ github.sha }}-${{ github.run_number }}"
         region: ap-northeast-2
