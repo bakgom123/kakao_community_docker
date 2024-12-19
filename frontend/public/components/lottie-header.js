@@ -43,7 +43,7 @@ class LottieHeader extends HTMLElement {
        this.innerHTML = `
            <div class="header">
                <div class="lottie-back-button" id="back-button"></div>
-               <h4 class="main-header-title">아무 말 대잔치</h4>
+               <h4 class="main-header-title">D3D의 아무 말 대잔치</h4>
                <div class="user-menu">
                    <img src="${imageUrl}" 
                         alt="프로필" 
