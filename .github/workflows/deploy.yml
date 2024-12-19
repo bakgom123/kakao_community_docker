@@ -35,7 +35,7 @@ jobs:
         docker build -t $ECR_REGISTRY/community-frontend:latest -f frontend/dockerfile ./frontend
         docker push $ECR_REGISTRY/community-frontend:latest
 
-    - name: Deploying Backend to Elastic Beanstalk
+    - name: Deploy Backend to Elastic Beanstalk
       uses: einaregilsson/beanstalk-deploy@v21
       with:
         aws_access_key: ${{ secrets.AWS_ACCESS_KEY_ID }}

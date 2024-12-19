@@ -55,7 +55,7 @@
 
 1. 저장소 클론
 ```bash
-git clone https://github.com/100-hours-a-week/2-david-yoo-community-be.git
+git clone https://github.com/,,,
 ```
 
 2. 의존성 설치
