@@ -6,19 +6,7 @@
     },
     "Ports": [
       {
-        "ContainerPort": "8000"
+        "ContainerPort": "3000"
       }
-    ],
-    "Environment": {
-      "AWS_ACCESS_KEY_ID": "${AWS_ACCESS_KEY_ID}",
-      "AWS_SECRET_ACCESS_KEY": "${AWS_SECRET_ACCESS_KEY}",
-      "AWS_REGION": "${AWS_REGION}",
-      "AWS_BUCKET_NAME_DEPLOY": "elasticbeanstalk-ap-northeast-2-051826694008",
-      "CLOUDFRONT_DOMAIN": "d2t2xvt037aek.cloudfront.net",
-      "DB_HOST": "${DB_HOST}",
-      "DB_PORT": "${DB_PORT}",
-      "DB_USER": "${DB_USER}",
-      "DB_PASSWORD": "${DB_PASSWORD}",
-      "DB_NAME": "${DB_NAME}"
-    }
+    ]
   }
