@@ -16,6 +16,11 @@ app.get('/', (req, res) => {
     res.redirect('/html/login.html');
 });
 
+// /health 엔드포인트 추가
+app.get('/health', (req, res) => {
+    res.status(200).send('OK');
+});
+
 app.listen(port, () => {
    console.log(`Frontend server running at port ${port}`);
 });
