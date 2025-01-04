@@ -1,7 +1,7 @@
 {
     "AWSEBDockerrunVersion": "1",
     "Image": {
-      "Name": "051826694008.dkr.ecr.ap-northeast-2.amazonaws.com/community-frontend:latest",
+      "Name": "051826694008.dkr.ecr.ap-northeast-2.amazonaws.com/community-frontend:v2",
       "Update": "true"
     },
     "Ports": [
