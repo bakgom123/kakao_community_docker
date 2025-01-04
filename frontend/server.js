@@ -16,7 +16,7 @@ app.get('/', (req, res) => {
     res.redirect('/html/login.html');
 });
 
-// /health 엔드포인트 추가
+// /health 엔드포인트
 app.get('/health', (req, res) => {
     res.status(200).send('OK');
 });
