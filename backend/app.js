@@ -21,7 +21,7 @@ const PORT = process.env.PORT || 3000;
 dotenv.config();
 
 app.use(cors({
-    origin: ['http://43.203.237.161', 'http://43.203.237.161:3002'],  // 프론트엔드 도메인
+    origin: ['http://43.203.237.161', 'http://David-kakao-community-env-front.eba-xxxxxx.elasticbeanstalk.com'],  // 프론트엔드 도메인
     credentials: true  // 쿠키/세션 허용
 }));
 
