@@ -5,7 +5,7 @@
 async function fetchPost(postId) {
     try {
         //const response = await fetch(`http://localhost:3000/posts/${postId}`);
-        const response = await fetch(`http://43.203.237.161/api/posts/${postId}`);
+        const response = await fetch(`http://David-kakao-community-env-backend.eba-an3dmmwe.ap-northeast-2.elasticbeanstalk.com/api/posts/${postId}`);
         if (!response.ok) {
             throw new Error('게시글을 가져오는 데 실패했습니다.');
         }
@@ -32,7 +32,7 @@ function populateForm(post) {
     const imagePreview = document.getElementById('imagePreview');
     if (post.image && imagePreview) {
         //imagePreview.src = `http://localhost:3000/posts/${post.image}`;
-        imagePreview.src = `http://43.203.237.161/api/posts/${post.image}`;
+        imagePreview.src = `http://David-kakao-community-env-backend.eba-an3dmmwe.ap-northeast-2.elasticbeanstalk.com/api/posts/${post.image}`;
         imagePreview.style.display = 'block';
     }
 
@@ -71,7 +71,7 @@ async function reSubmitPost() {
     try {
         // 서버에 게시글 수정 요청
         //const response = await fetch(`http://localhost:3000/posts/${postId}`, {
-        const response = await fetch(`http://43.203.237.161/api/posts/${postId}`, {
+        const response = await fetch(`http://David-kakao-community-env-backend.eba-an3dmmwe.ap-northeast-2.elasticbeanstalk.com/api/posts/${postId}`, {
             method: 'PUT',
             body: formData,
         });

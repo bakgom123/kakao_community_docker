@@ -8,7 +8,7 @@ const CLOUDFRONT_DOMAIN = 'd2t2xvt037aek.cloudfront.net';
  */
 async function fetchUserProfile(email) {
     try {
-        const response = await fetch(`http://43.203.237.161/api/user/profile-image/${email}`, {
+        const response = await fetch(`http://David-kakao-community-env-backend.eba-an3dmmwe.ap-northeast-2.elasticbeanstalk.com/api/user/profile-image/${email}`, {
            headers: {
                Accept: 'application/json',
                'Content-Type': 'application/json',
@@ -102,7 +102,7 @@ async function toggleLike(postId) {
         // 서버에 좋아요 상태 변경 요청
         const response = await fetch(
             // `http://localhost:3000/likes/${postId}`,
-            `http://43.203.237.161/api/likes/${postId}`,
+            `http://David-kakao-community-env-backend.eba-an3dmmwe.ap-northeast-2.elasticbeanstalk.com/api/likes/${postId}`,
             {
                 method: 'POST',
                 headers: {
@@ -169,7 +169,7 @@ async function checkLikeStatus(postId) {
     try {
         const response = await fetch(
             // `http://localhost:3000/likes/check/${postId}?email=${email}`,
-            `http://43.203.237.161/api/likes/check/${postId}?email=${email}`,
+            `http://David-kakao-community-env-backend.eba-an3dmmwe.ap-northeast-2.elasticbeanstalk.com/api/likes/check/${postId}?email=${email}`,
             {
                 headers: {
                     'Content-Type': 'application/json',
@@ -213,13 +213,13 @@ async function fetchPost(postId) {
     try {
         // 조회수 증가 요청
         // await fetch(`http://localhost:3000/views/${postId}`, {
-        await fetch(`http://43.203.237.161/api/views/${postId}`, {
+        await fetch(`http://David-kakao-community-env-backend.eba-an3dmmwe.ap-northeast-2.elasticbeanstalk.com/api/views/${postId}`, {
             method: 'POST',
         });
 
         // 게시글 데이터 요청
         // const response = await fetch(`http://localhost:3000/posts/${postId}`);
-        const response = await fetch(`http://43.203.237.161/api/posts/${postId}`);
+        const response = await fetch(`http://David-kakao-community-env-backend.eba-an3dmmwe.ap-northeast-2.elasticbeanstalk.com/api/posts/${postId}`);
 
         if (!response.ok) {
             throw new Error('게시글 가져오기 실패');
@@ -235,7 +235,7 @@ async function fetchPost(postId) {
         //     `http://localhost:3000/user/profile-image/${data.post.author_email}`,
         // );
         const profileResponse = await fetch(
-            `http://43.203.237.161/api/user/profile-image/${data.post.author_email}`
+            `http://David-kakao-community-env-backend.eba-an3dmmwe.ap-northeast-2.elasticbeanstalk.com/api/user/profile-image/${data.post.author_email}`
         );
         const profileData = await profileResponse.json();
 
@@ -331,7 +331,7 @@ async function displayPost(post) {
 async function handlePostDelete(postId) {
     try {
         // const response = await fetch(`http://localhost:3000/posts/${postId}`, {
-        const response = await fetch(`http://43.203.237.161/api/posts/${postId}`, {
+        const response = await fetch(`http://David-kakao-community-env-backend.eba-an3dmmwe.ap-northeast-2.elasticbeanstalk.com/api/posts/${postId}`, {
             method: 'DELETE',
         });
 
@@ -374,7 +374,7 @@ async function submitComment(postId) {
 
     try {
         // const response = await fetch('http://localhost:3000/comments', {
-        const response = await fetch('http://43.203.237.161/api/comments', {
+        const response = await fetch('http://David-kakao-community-env-backend.eba-an3dmmwe.ap-northeast-2.elasticbeanstalk.com/api/comments', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -431,7 +431,7 @@ async function deleteComment(commentId) {
         // const response = await fetch(
         //     `http://localhost:3000/comments/${commentId}`,
         //     {
-            const response = await fetch(`http://43.203.237.161/api/comments/${commentId}`, {
+            const response = await fetch(`http://David-kakao-community-env-backend.eba-an3dmmwe.ap-northeast-2.elasticbeanstalk.com/api/comments/${commentId}`, {
                 method: 'DELETE',
                 headers: {
                     'Content-Type': 'application/json',
@@ -480,7 +480,7 @@ async function fetchCommentCount(postId) {
         // const response = await fetch(
         //     `http://localhost:3000/comments/${postId}`,
         // );
-        const response = await fetch(`http://43.203.237.161/api/comments/${postId}`);
+        const response = await fetch(`http://David-kakao-community-env-backend.eba-an3dmmwe.ap-northeast-2.elasticbeanstalk.com/api/comments/${postId}`);
         if (!response.ok) throw new Error('댓글 가져오기 실패');
         const comments = await response.json();
         return Array.isArray(comments) ? comments.length : 0;
@@ -499,7 +499,7 @@ async function fetchComments(postId) {
         // const response = await fetch(
         //     `http://localhost:3000/comments/${postId}`,
         // );
-        const response = await fetch(`http://43.203.237.161/api/comments/${postId}`);
+        const response = await fetch(`http://David-kakao-community-env-backend.eba-an3dmmwe.ap-northeast-2.elasticbeanstalk.com/api/comments/${postId}`);
         if (!response.ok) throw new Error('댓글 가져오기 실패');
 
         const data = await response.json();
@@ -634,7 +634,7 @@ function setupCommentEventListeners(commentItem, commentId) {
             // const response = await fetch(
             //     `http://localhost:3000/comments/${commentId}`,
             //     {
-                const response = await fetch(`http://43.203.237.161/api/comments/${commentId}`, {
+                const response = await fetch(`http://David-kakao-community-env-backend.eba-an3dmmwe.ap-northeast-2.elasticbeanstalk.com/api/comments/${commentId}`, {
                     method: 'PUT',
                     headers: {
                         'Content-Type': 'application/json',

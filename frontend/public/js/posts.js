@@ -19,7 +19,7 @@ async function fetchPosts(page = 1) {
         isLoading = true;
         const response = await fetch(
             //`http://localhost:3000/posts?page=${page}&limit=${postsPerPage}`,
-            `http://43.203.237.161/api/posts?page=${page}&limit=${postsPerPage}`,
+            `http://David-kakao-community-env-backend.eba-an3dmmwe.ap-northeast-2.elasticbeanstalk.com/api/posts?page=${page}&limit=${postsPerPage}`,
         );
 
         if (!response.ok) {

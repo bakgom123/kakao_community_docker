@@ -93,7 +93,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const email = localStorage.getItem('email');
         // 서버에 탈퇴 요청
         // fetch('http://localhost:3000/auth/withdraw', {
-        fetch('http://43.203.237.161/api/auth/withdraw', {
+        fetch('http://David-kakao-community-env-backend.eba-an3dmmwe.ap-northeast-2.elasticbeanstalk.com/api/auth/withdraw', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -143,7 +143,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 reader.onload = async () => {
                     await fetch(
                         // 'http://localhost:3000/user/update-profile-image',
-                        'http://43.203.237.161/api/user/update-profile-image',
+                        'http://David-kakao-community-env-backend.eba-an3dmmwe.ap-northeast-2.elasticbeanstalk.com/api/user/update-profile-image',
                         {
                             method: 'POST',
                             headers: {
@@ -161,7 +161,7 @@ document.addEventListener('DOMContentLoaded', function () {
             // 닉네임 업데이트
             const nicknameResponse = await fetch(
                 //'http://localhost:3000/user/update-nickname',
-                'http://43.203.237.161/api/user/update-nickname',
+                'http://David-kakao-community-env-backend.eba-an3dmmwe.ap-northeast-2.elasticbeanstalk.com/api/user/update-nickname',
                 {
                     method: 'POST',
                     headers: {
