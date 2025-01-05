@@ -21,7 +21,7 @@ const PORT = process.env.PORT || 3000;
 dotenv.config();
 
 app.use(cors({
-    origin: ['http://43.203.237.161', 'http://David-kakao-community-env-front.eba-xxxxxx.elasticbeanstalk.com'],  // 프론트엔드 도메인
+    origin: ['http://43.203.237.161', 'http://david-kakao-community-env-front.eba-an3dmmwe.ap-northeast-2.elasticbeanstalk.com'],  // 프론트엔드 도메인
     credentials: true  // 쿠키/세션 허용
 }));
 
@@ -55,7 +55,7 @@ app.use(
     '/uploads',
     (req, res, next) => {
         // 배열로 처리
-        const allowedOrigins = ['http://43.203.237.161','http://david-kakao-community-env-front.eba-an3dmmwe.ap-northeast-2.elasticbeanstalk.com/'];
+        const allowedOrigins = ['http://43.203.237.161','http://david-kakao-community-env-front.eba-an3dmmwe.ap-northeast-2.elasticbeanstalk.com'];
         const origin = req.headers.origin;
         
         if (allowedOrigins.includes(origin)) {
