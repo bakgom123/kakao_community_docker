@@ -3,6 +3,7 @@ import express from 'express';
 import cors from 'cors';
 import session from 'express-session';
 import dotenv from 'dotenv';
+import xss from 'xss-clean';
 
 // 라우트 모듈
 import authRoutes from './src/routes/authRoutes.js';
@@ -19,6 +20,9 @@ import './src/config/database.js';
 const app = express();
 const PORT = process.env.PORT || 3000;
 dotenv.config();
+
+// XSS 방지
+app.use(xss());
 
 app.use(cors({
     origin: ['http://43.203.237.161', 'http://david-kakao-community-env-front.eba-an3dmmwe.ap-northeast-2.elasticbeanstalk.com'],  // 프론트엔드 도메인
