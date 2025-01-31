@@ -1,12 +1,12 @@
 {
-  "AWSEBDockerrunVersion": "1",
-  "Image": {
-    "Name": "051826694008.dkr.ecr.ap-northeast-2.amazonaws.com/community-frontend:${{ github.sha }}",
-    "Update": "true"
-  },
-  "Ports": [
-    {
-      "ContainerPort": 3002
-    }
-  ]
-}
+    "AWSEBDockerrunVersion": "1",
+    "Image": {
+      "Name": "051826694008.dkr.ecr.ap-northeast-2.amazonaws.com/community-frontend:latest",
+      "Update": "true"
+    },
+    "Ports": [
+      {
+        "ContainerPort": 3002
+      }
+    ]
+  }

@@ -32,7 +32,7 @@ jobs:
         docker push $ECR_REGISTRY/community-backend:latest
 
         # Build and Push Frontend Image
-        docker build -t $ECR_REGISTRY/community-frontend:latest -f frontend/dockerfile ./frontend
+        docker build --no-cache -t $ECR_REGISTRY/community-frontend:latest -f frontend/dockerfile ./frontend
         docker push $ECR_REGISTRY/community-frontend:latest
 
     - name: Deploy Backend to Elastic Beanstalk
