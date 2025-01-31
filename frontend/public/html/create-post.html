@@ -5,15 +5,11 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>게시글 작성</title>
         <link rel="stylesheet" href="../styles/create-post.css" />
-        <link rel="stylesheet" href="../styles/global.css" />
-        <link rel="stylesheet" href="../styles/login.css" />
         <link rel="stylesheet" href="../styles/edit-profile.css" />
         <script src="../js/create-post.js" defer></script>
     </head>
 
     <body>
-        <lottie-header></lottie-header>
-
         <div class="main-content">
             <div class="container">
                 <div class="login-section">
@@ -48,6 +44,7 @@
                     </div>
                     <div class="buttons">
                         <button onclick="submitPost()">완료</button>
+                        <button onclick="redirectToBoard()" class="cancel-button">게시판 보기</button>
                     </div>
                 </div>
             </div>
