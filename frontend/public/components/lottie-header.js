@@ -43,8 +43,8 @@ class LottieHeader extends HTMLElement {
        this.innerHTML = `
            <div class="header">
                <a href="posts.html" class="back-button">
-            <i class="fas fa-arrow-left"></i> Whisper Back
-        </a>
+                    <i class="fas fa-arrow-left"></i> Whisper Back
+               </a>
                <h4 class="main-header-title">WhisperSpace</h4>
                <div class="user-menu">
                    <img src="${imageUrl}" 
