@@ -1,4 +1,4 @@
-body {
+/* body {
     font-family: 'Inter', sans-serif;
     background-color: #f8f8f8;
     color: #333;
@@ -41,7 +41,7 @@ body {
 .main-header {
     position: relative;
     display: flex;
-    justify-content: space-between; /* 중앙 정렬과 오른쪽 정렬을 균형 있게 배치 */
+    justify-content: space-between;
     align-items: center;
     padding: 20px;
     border-bottom: 1px solid #e0e0e0;
@@ -95,4 +95,4 @@ body {
 
 .dropdown-menu.show {
     display: block;
-}
+} */
