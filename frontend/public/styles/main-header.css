@@ -68,3 +68,14 @@ body {
 .dropdown-menu.show {
     display: block;
 }
+
+.lottie-back-button {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 100px;
+    cursor: pointer;
+    left: 40px;
+}
