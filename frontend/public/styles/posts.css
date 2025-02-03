@@ -27,8 +27,8 @@ body {
     cursor: pointer;
     font-size: 16px;
     transition: background 0.3s ease;
-    align-self: flex-end;
-    margin: 20px;
+    align-self: center; /* 버튼을 중앙에 정렬 */
+    margin: 20px auto; /* 위아래 여백 및 좌우 정렬 */
     display: block;
 }
 
