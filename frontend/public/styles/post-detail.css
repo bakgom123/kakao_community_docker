@@ -236,6 +236,25 @@ body {
 }
 
 /* 모달 스타일 */
+.modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    visibility: hidden;
+}
+
+.modal-backdrop.show {
+    visibility: visible;
+}
+
 .modal-container {
     background-color: white;
     padding: 30px;
@@ -243,7 +262,18 @@ body {
     width: 90%;
     max-width: 400px;
     text-align: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.modal-title {
+    font-size: 18px;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+.modal-message {
+    color: #666;
+    margin-bottom: 25px;
+    font-size: 14px;
 }
 
 .modal-buttons {
@@ -251,6 +281,7 @@ body {
     gap: 10px;
     justify-content: center;
 }
+
 
 .btn-cancel {
     background-color: #333;
@@ -272,8 +303,3 @@ body {
     font-size: 16px;
 }
 
-/* 헤더의 로티 아이콘 */
-.lottie-icon {
-    width: 32px;
-    height: 32px;
-}
