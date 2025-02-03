@@ -42,8 +42,10 @@ class LottieHeader extends HTMLElement {
    renderHeader(imageUrl) {
        this.innerHTML = `
            <div class="header">
-               <div class="lottie-back-button" id="back-button"></div>
-               <h4 class="main-header-title">D3D의 아무 말 대잔치</h4>
+               <a href="posts.html" class="back-button">
+            <i class="fas fa-arrow-left"></i> Whisper Back
+        </a>
+               <h4 class="main-header-title">WhisperSpace</h4>
                <div class="user-menu">
                    <img src="${imageUrl}" 
                         alt="프로필" 

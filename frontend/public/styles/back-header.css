@@ -20,6 +20,32 @@ body {
     transition: all 0.3s ease;
 }
 
+.back-button {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 16px;
+    color: #333;
+    text-decoration: none;
+    cursor: pointer;
+    transition: color 0.2s ease;
+    font-weight: bold;
+}
+
+.back-button i {
+    font-size: 18px;
+    color: #666;
+    transition: color 0.2s ease;
+}
+
+.back-button:hover {
+    color: #555;
+}
+
+.back-button:hover i {
+    color: #333;
+}
+
 .main-header-title {
     font-size: 20px;
     font-weight: bold;
