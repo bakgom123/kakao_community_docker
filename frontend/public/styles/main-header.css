@@ -7,14 +7,17 @@ body {
 }
 
 .header {
-    position: sticky;
+    position: fixed; /* 페이지 최상단에 고정 */
     top: 0;
+    left: 0;
+    width: 100%; /* 전체 너비 차지 */
+    height: 60px;
     z-index: 1000;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 15px 30px;
-    background-color: #ffffff;
+    background-color: white;
     border-bottom: 1px solid #eaeaea;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
@@ -25,7 +28,8 @@ body {
     font-weight: bold;
     color: #333;
     margin: 0;
-    transition: all 0.3s ease;
+    flex-grow: 1;
+    text-align: center; /* 텍스트 가운데 정렬 */
 }
 
 .user-menu {
