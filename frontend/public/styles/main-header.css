@@ -7,20 +7,21 @@ body {
 }
 
 .header {
-    position: relative; /* 고정 대신 상대 위치 사용 */
+    position: sticky; /* 고정 대신 상대 위치 사용 */
     z-index: 1000;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 15px 20px;
-    background-color: white;
-    border-bottom: 1px solid #ddd;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    background-color: #f8f8f8;
+    border-bottom: 1px solid #eaeaea;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .main-header-title {
     font-size: 28px;
     font-weight: 700;
+    color: #333;
     margin: 0;
 }
 

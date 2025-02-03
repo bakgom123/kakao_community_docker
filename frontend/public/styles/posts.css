@@ -29,6 +29,7 @@ body {
     transition: background 0.3s ease;
     align-self: flex-end;
     margin: 20px;
+    display: block;
 }
 
 .create-button:hover {
