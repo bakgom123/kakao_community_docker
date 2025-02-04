@@ -4,6 +4,7 @@ body {
     color: #333;
     margin: 0;
     padding: 0;
+    padding-top: 60px;
 }
 
 .header {
@@ -65,8 +66,8 @@ body {
     height: 36px;
     border-radius: 50%;
     object-fit: cover;
-    transition: transform 0.2s;
     object-position: center;
+    transition: transform 0.2s;
 }
 
 .user-menu img:hover {
