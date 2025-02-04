@@ -8,11 +8,12 @@ body {
     flex-direction: column;
     align-items: center;
     min-height: 100vh;
-    padding-top: 90px; /* 헤더 높이만큼 상단 여백 추가 */
+    padding-top: 90px;
 }
 
 /* 게시글 컨테이너 */
 .post-container {
+    padding-top: 90px;
     max-width: 800px;
     margin: 0 auto;
     padding: 20px;

@@ -27,7 +27,7 @@ body {
     font-size: 20px;
     font-weight: bold;
     color: #333;
-    margin: 0;
+    margin-left: -10;
     flex-grow: 1;
     text-align: center; /* 텍스트 가운데 정렬 */
 }
@@ -66,6 +66,7 @@ body {
     border-radius: 50%;
     object-fit: cover;
     transition: transform 0.2s;
+    object-position: center;
 }
 
 .user-menu img:hover {
