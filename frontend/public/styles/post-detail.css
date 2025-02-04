@@ -13,7 +13,7 @@ body {
 
 /* 게시글 컨테이너 */
 .post-container {
-    margin-top: 60px;
+    margin-top: 80px;
     max-width: 800px;
     margin: 0 auto;
     padding: 20px;
@@ -96,23 +96,23 @@ body {
 }
 
 .edit-button {
-    background-color: #333;
-    color: white;
-    padding: 12px 40px;
     border-radius: 8px;
-    border: none;
+    font-size: 10px;
     cursor: pointer;
-    font-size: 16px;
+    white-space: nowrap;
+    background-color: #f0f0f0;
+    color: #333;
+    transition: background-color 0.2s ease;
 }
 
 .post-delete-btn {
-    background-color: #333;
-    color: white;
-    padding: 12px 40px;
     border-radius: 8px;
-    border: none;
+    font-size: 10px;
     cursor: pointer;
-    font-size: 16px;
+    white-space: nowrap;
+    background-color: #f0f0f0;
+    color: #333;
+    transition: background-color 0.2s ease;
 }
 
 /* 게시글 통계 */
@@ -258,23 +258,23 @@ body {
 }
 
 .edit-save-btn {
-    background-color: #333;
-    color: white;
-    padding: 12px 40px;
     border-radius: 8px;
-    border: none;
+    font-size: 10px;
     cursor: pointer;
-    font-size: 16px;
+    white-space: nowrap;
+    background-color: #f0f0f0;
+    color: #333;
+    transition: background-color 0.2s ease;
 }
 
 .edit-cancle-btn {
-    background-color: #333;
-    color: white;
-    padding: 12px 40px;
     border-radius: 8px;
-    border: none;
+    font-size: 10px;
     cursor: pointer;
-    font-size: 16px;
+    white-space: nowrap;
+    background-color: #f0f0f0;
+    color: #333;
+    transition: background-color 0.2s ease;
 }
 
 /* 모달 스타일 */

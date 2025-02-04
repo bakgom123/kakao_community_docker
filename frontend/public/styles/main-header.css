@@ -35,7 +35,7 @@ body {
 .user-menu {
     position: relative;
     top: 50%;
-    right: 70px;
+    right: 60px;
     transform: translateY(-50%);
     display: flex;
     align-items: center;
