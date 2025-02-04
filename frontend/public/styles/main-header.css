@@ -33,9 +33,9 @@ body {
 }
 
 .user-menu {
-    position: absolute;
+    position: relative;
     top: 50%;
-    right: 55px;
+    right: 70px;
     transform: translateY(-50%);
     display: flex;
     align-items: center;
