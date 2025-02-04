@@ -42,7 +42,7 @@ class LottieHeader extends HTMLElement {
    renderHeader(imageUrl) {
        this.innerHTML = `
            <div class="header">
-               <a href="posts.html" class="back-button">
+               <a href="posts.html" class="back-button" style="position: absolute; left: 20px; top: 50%; transform: translateY(-50%);">
                     <i class="fas fa-arrow-left"></i> Whisper Back
                </a>
                <h4 class="main-header-title">WhisperSpace</h4>
