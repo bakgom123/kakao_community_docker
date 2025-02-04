@@ -546,7 +546,7 @@ async function displayComment(comment) {
             <div class="profile-image">
                 <img src="${profileImageUrl}" 
                      alt="프로필 이미지"
-                     style="width: 40px; height: 40px; border-radius: 50%; object-fit: cover;">
+                     style="width: 40px; height: 40px; border-radius: 50%; object-fit: cover; padding-right: 10px;">
             </div>
         </div>
         <div class="comment-right">
